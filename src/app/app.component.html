@@ -1,9 +1,48 @@
-<div class="text-layout">
-  <h3>
-    NUEVO PROYECTO
-  </h3>
+<div>
+    <div class="m-alert__text m-input g-mb-0">
+      <div class="form-group g-mb-0">
+        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="MARK-V111"
+          formControlName="nombre" #resourceName maxlength="80">
+      </div>
+    </div>&nbsp;
+    <div>
+      <span>Hola</span>
+        <form (ngSubmit)="buscarP()" autocomplete="off">
+          <input  type="Text"
+                  name="Nuevo" 
+                  class="form-control"
+                  (input)="teclaPresionada( $event )"
+                  placeholder="Cuenta UV"/>
+        </form>
+      <button type="button" class="mat-stroked-button mat-stroked-button-green g-rounded-4 ml-2">
+        {{'Agregar'}}
+      </button>
+      <div class="m-member-add__container g-pb-5 g-pt-25">
+        <h5 class="g-font-size-16 g-font-weight-400 m-member-add__container-title-type">
+          Cuentas Seleccionadas
+        </h5>
+      </div>
+      <div *ngFor="let Integrante of Integrantes" class="d-flex justify-content-between">
+        <span class="d-flex">
+          <img src="{{Integrantes.imgProfile}}" class="img-thumbnail" width="100" alt="">
+          <div>
+            Nombre: {{Integrantes.Name}} <br>
+            Correo: {{Integrantes.email}}
+          </div>
+        </span>
+        <span>
+          <button class="fa-regular fa-circle-xmark text-danger" style="cursor: pointer"
+            ></button> (click)="DeleteMember(Integrante)"
+        </span>
+      </div>
+    </div>
+    <br>
+    <!-- 		<div class="card g-rounded-6">
+			<ng-container [ngTemplateOutlet]="mShareMembers" [ngTemplateOutletContext]="{  }"></ng-container>
+		</div> -->
+    <div class="col-lg-12">
+      <button type="button" class="mat-stroked-button mat-stroked-button-green-inline g-mr-5 g-rounded-4">
+       Regresar
+      </button>&nbsp;
+    </div>
 </div>
-
-<button pButton type="button" label="PRESIONAME" >
-
-</button>
